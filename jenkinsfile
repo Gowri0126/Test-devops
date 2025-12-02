@@ -1,0 +1,37 @@
+pipeline{
+  agent any{
+    tool{
+      jdk: 'jdk21'
+    }
+    stages{
+      stage('checkout'){
+        steps{
+          git branch: 'main',
+          url: 'https://github.com/Gowri0126/Test-devops'
+        }
+      }
+      stage('Compile'){
+        steps{
+          echo 'Compiling java file'
+          sh 'javac Test.java'
+        }
+      }
+
+      stage('Run'){
+        steps{
+          echo 'Running java file'
+          sh 'java Test'
+        }
+      }
+    }
+
+    post{
+      success{
+        echo 'Build successful'
+      }
+      failure{
+        echo 'build fail'
+      }
+    }
+  }
+}
