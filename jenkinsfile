@@ -8,7 +8,7 @@ pipeline{
   stages{
     stage('Checkout'){
       steps{
-        git branch: 'main', url: 'https://github.com/Mayur-Hambar/DevOps_CIE' 
+        git branch: 'main', url: 'https://github.com/Gowri0126/Test-devops' 
       }
     }
 
